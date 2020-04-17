@@ -28,11 +28,8 @@ Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-dispatch'
 Plugin 'radenling/vim-dispatch-neovim'
-Plugin 'sts10/vim-pink-moon'
-Plugin 'rakr/vim-one'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kaicataldo/material.vim'
-Plugin 'cormacrelf/vim-colors-github'
+Plugin 'sainnhe/edge'
+Plugin 'herrbischoff/cobalt2.vim'
 
 let mapleader = ","
 
@@ -53,7 +50,7 @@ set hlsearch " No highlight searchs
 " Show invisibles
 " http://vimcasts.org/episodes/show-invisibles/
 set list
-set listchars=tab:\|\ ,trail:·,eol:¬
+set listchars=tab:\|\ ,trail:¬∑,eol:¬¨
 
 " Status line
 " Customize status line
@@ -87,19 +84,13 @@ set mouse-=a
 set foldmethod=manual
 
 syntax enable
+set termguicolors
 set background=dark
-let g:material_theme_style='lighter'
-" let g:material_style='palenight'
-"let g:solarized_termcolors=256
-" let g:one_allow_italics = 1 " I love italic for comments
-" let g:material_terminal_italics = 1
-let g:github_colors_soft = 1
-let g:github_colors_block_diffmark = 0
-colorscheme github
-set guifont=Meslo\ LG\ L\ Regular\ for\ Powerline
+let g:edge_style = 'neon'
+let g:edge_enable_italic = 1
+let g:airline_theme = 'tmuxline'
+colorscheme cobalt2
 set autoindent
-let g:airline_theme='github'
-let g:lightline = { 'colorscheme': 'github' }
 
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 if (has('nvim'))
