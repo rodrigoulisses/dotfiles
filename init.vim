@@ -2,7 +2,7 @@ filetype plugin indent on
 set encoding=utf8 " Use utf-8 as default encoding
 
 " Vundler
-set rtp+=~/.config/nvim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " My plugins to install/update with vundler See http://vimawesome.com/
@@ -46,11 +46,6 @@ set nowritebackup
 set nocursorline " Dont underline all line.
 setlocal incsearch " Set search *dinamic*
 set hlsearch " No highlight searchs
-
-" Show invisibles
-" http://vimcasts.org/episodes/show-invisibles/
-set list
-set listchars=tab:\|\ ,trail:¬∑,eol:¬¨
 
 " Status line
 " Customize status line
