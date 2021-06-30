@@ -2,7 +2,7 @@ filetype plugin indent on
 set encoding=utf8 " Use utf-8 as default encoding
 
 " Vundler
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#rc()
 
 " My plugins to install/update with vundler See http://vimawesome.com/
@@ -30,6 +30,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'radenling/vim-dispatch-neovim'
 Plugin 'sainnhe/edge'
 Plugin 'herrbischoff/cobalt2.vim'
+Plugin 'endel/vim-github-colorscheme'
 
 let mapleader = ","
 
@@ -79,13 +80,20 @@ set mouse-=a
 set foldmethod=manual
 
 syntax enable
-set termguicolors
-set background=dark
+" set background=dark
 let g:edge_style = 'neon'
 let g:edge_enable_italic = 1
-let g:airline_theme = 'tmuxline'
-colorscheme cobalt2
+" let g:airline_theme = 'onehalfdark'
+" colorscheme onehalfdark
 set autoindent
+
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+" lightline
+" let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 if (has('nvim'))
@@ -96,6 +104,12 @@ endif
 " Based on Vim patch 7.4.1770 (`guicolors` option) - https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
 " https://github.com/neovim/neovim/wiki/Following-HEAD#20160511
 if (has('termguicolors'))
+  set termguicolors
+endif
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
