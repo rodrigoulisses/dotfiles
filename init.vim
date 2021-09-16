@@ -31,6 +31,8 @@ Plugin 'radenling/vim-dispatch-neovim'
 Plugin 'sainnhe/edge'
 Plugin 'herrbischoff/cobalt2.vim'
 Plugin 'endel/vim-github-colorscheme'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 let mapleader = ","
 
