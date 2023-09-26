@@ -19,20 +19,27 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'slim-template/vim-slim.git'
-Plugin 'junegunn/fzf.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chemzqm/vim-jsx-improve'
-" Plugin 'itmammoth/run-rspec.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'tpope/vim-dispatch'
 Plugin 'radenling/vim-dispatch-neovim'
 Plugin 'sainnhe/edge'
-Plugin 'herrbischoff/cobalt2.vim'
-Plugin 'endel/vim-github-colorscheme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'dense-analysis/ale'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plugin 'napmn/react-extract.nvim'
+Plugin 'posva/vim-vue'
+Plugin 'SirVer/ultisnips'
+Plugin 'mlaursen/vim-react-snippets'
+Plugin 'Mofiqul/vscode.nvim'
+Plugin 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 let mapleader = ","
 
@@ -85,17 +92,15 @@ syntax enable
 " set background=dark
 let g:edge_style = 'neon'
 let g:edge_enable_italic = 1
-" let g:airline_theme = 'onehalfdark'
-" colorscheme onehalfdark
 set autoindent
 
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-" lightline
-" let g:lightline = { 'colorscheme': 'onehalfdark' }
+" colorscheme onehalfdark
+" let g:airline_theme='onehalfdark'
+colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+let g:airline_theme = 'catppuccin'
 
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 if (has('nvim'))
@@ -117,13 +122,7 @@ endif
 
 set clipboard=unnamedplus
 
-" nnoremap <leader>r :RunSpec<CR>
-" nnoremap <leader>l :RunSpecLine<CR>
-" nnoremap <leader>e :RunSpecLastRun<CR>
-" nnoremap <leader>cr :RunSpecCloseResult<CR>
-
 autocmd BufWritePre * %s/\s\+$//e
-
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
@@ -133,5 +132,13 @@ nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
 nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
 let test#strategy = "dispatch"
 tnoremap <Esc> <C-><C-n>
+
+" Configure linters (ALE and mix format)
+let g:ale_linters = {'ruby': ['standardrb'], 'javascript': ['prettier']}
+let g:ale_fixers = {'ruby': ['standardrb'], 'javascript': ['prettier']}
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_save = 1
+let g:ale_enabled = 1
+let g:mix_format_on_save = 1
 
 au BufRead,BufNewFile *.axlsx setlocal filetype=ruby
