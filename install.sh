@@ -1,4 +1,4 @@
-sudo apt-get install libvips make curl git libssl-dev gcc
+sudo apt-get install libvips make curl git libssl-dev gcc libffi-dev
 
 # Install ASDF
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
